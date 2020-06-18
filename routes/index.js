@@ -5,6 +5,7 @@ const {check} = require('express-validator');
 
 const usuarioController = require('../controllers/usuarioController')
 const loginController = require('../controllers/loginController')
+const newsController = require('../controllers/newsController')
 
 routes.post('/cadastro', [check("userGithub").isLength({min:3}).withMessage("O nome do usuario tem que conter no minimo 3 caracteres!"), 
 check("email").isEmail().withMessage("Digite um email válido!"),
@@ -13,10 +14,8 @@ check("cnpj").isLength({min:3}).withMessage("O CNPJ tem que conter no minimo 14 
 ], usuarioController.store);
 
 routes.get('/login', loginController.store);
-// routes.post('/login', authController.store);
 
-// routes.get('/sair', authController.destroy)
-
+routes.post('/newsletter', newsController.store);
 
 
 module.exports = routes;
