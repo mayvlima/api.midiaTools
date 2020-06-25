@@ -4,8 +4,7 @@ const { User } = require('../models')
 module.exports = {
     store: async (req, res) =>{
     try{
-        const { email, password } = req.query;
-        console.log(req.query.email)
+        const { email, password } = req.query;        
 
         const usuario = await User.findOne({
             where:{email}
